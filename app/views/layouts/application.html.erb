@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Online Movie Store</title>
+<%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+</head>
+<body>
+<div id="wrapper">
+  <div id="inner">
+    <div id="header">
+      <h1><img src="/assets/logo.gif" width="519" height="63" alt="Online Movie Store" /></h1>
+      <div id="nav"> 
+      <a href="/home/">Home</a> | 
+      	<a href="/cart/">View Cart</a> | 
+      	<%= link_to 'Sign in', new_user_session_path %> |
+      	<%= link_to 'Register', new_user_registration_path %> 
+      	</div>
+      <!-- end nav -->
+      <a href="http://all-free-download.com/free-website-templates/"><img src="/assets/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="/assets/header_2.jpg" width="745" height="48" alt="" /></a> </div>
+    <!-- end header -->
+    <dl id="browse">
+      <dt>Full Category Lists</dt>
+      <dd class="first"><a href="http://all-free-download.com/free-website-templates/">Sports</a></dd>
+      <dd><a href="http://all-free-download.com/free-website-templates/">Music</a></dd>
+      <dd><a href="http://all-free-download.com/free-website-templates/">Theatre</a></dd>
+      <dd><a href="http://all-free-download.com/free-website-templates/">Family</a></dd>
+      <dd><a href="http://all-free-download.com/free-website-templates/">Last Minute Left-overs</a></dd>
+      <dd class="last"><a href="http://all-free-download.com/free-website-templates/">Special Events</a></dd>
+      <dt>Search for Your Next Event</dt>
+      <dd class="searchform">
+        <form action="http://all-free-download.com/free-website-templates/" method="get">
+          <div>
+            <select name="cat">
+              <option value="-" selected="selected">Select your event</option>
+              <option value="-">Sports</option>
+              <option value="-">Music</option>
+              <option value="-">Theatre</option>
+              <option value="-">Family</option>
+              
+            </select>
+          </div>
+          <div>
+            <input name="q" type="text" value="Search Events" class="text" />
+          </div>
+          <div class="softright">
+            <input type="image" src="/assets/btn_search.gif" />
+          </div>
+        </form>
+      </dd>
+    </dl>
+    <div id="body">
+    <p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+     <%= yield %>
+     
+     <% if user_signed_in? %>
+	<div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>)</div>
+	<% else %>
+	<%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
+	<% end %>
+    
+    </div>
+    <!-- end body -->
+    <div class="clear"></div>
+    <div id="footer"> Web design by <a href="http://www.freewebsitetemplates.com">free website templates</a> &nbsp;
+      <div id="footnav"> <a href="http://all-free-download.com/free-website-templates/">Legal</a> | <a href="http://all-free-download.com/free-website-templates/">Home</a> </div>
+      <!-- end footnav -->
+    </div>
+    <!-- end footer -->
+  </div>
+  <!-- end inner -->
+</div>
+<!-- end wrapper -->
+<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div></body>
+</html>
