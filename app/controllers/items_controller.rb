@@ -31,6 +31,15 @@ class ItemsController < ApplicationController
       format.json { render json: @item }
     end
   end
+    
+    def category
+        @items = Item.find_all_by_category(params[:id])
+        @category = params[:id]
+        respond_to do |format|
+            format.html # index.html.erb
+            format.json { render json: @items }
+        end
+    end
 
   # GET /items/1/edit
   def edit

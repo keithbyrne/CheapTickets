@@ -38,6 +38,8 @@ end
 	match '/clearCart' => 'cart#clearCart'
 	
 	match '/checkout' => 'cart#createOrder'
+    
+    match '/category/:id' => 'items#category'
 
 	
 	match '/home' => 'site#home'
