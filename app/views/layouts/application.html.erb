@@ -17,8 +17,12 @@
       <div id="nav"> 
       <a href="/home/">Home</a> | 
       	<a href="/cart/">View Cart</a> | 
+		<%if !current_user%>
       	<%= link_to 'Sign in', new_user_session_path %> |
       	<%= link_to 'Register', new_user_registration_path %> 
+		<%else%>
+		<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<%end%>
       	</div>
       <!-- end nav -->
       <a href=""><img src="/assets/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> 
@@ -53,8 +57,7 @@
      
      <% if user_signed_in? %>
 	<div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>)</div>
-	<% else %>
-	<%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
+
 	<% end %>
 	
     </div>
