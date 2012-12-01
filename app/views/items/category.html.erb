@@ -17,7 +17,7 @@
 <%=h item.description %>
 </div>
 <div class="price">
-<%= number_to_currency(item.price, :unit => "&pound;") %>
+<%= number_to_currency(item.price, :unit => "&euro;") %>
 </div>
 <div class="links">
 <% if session[:login] == 1 %>

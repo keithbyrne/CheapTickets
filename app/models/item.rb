@@ -1,3 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :category, :description, :image_url, :price, :title
+	#acts_as_indexed :fields => [:Title, :Description]
+  	attr_accessible :category, :description, :image_url, :price, :title
+  	
 end

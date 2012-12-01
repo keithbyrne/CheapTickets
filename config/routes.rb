@@ -1,4 +1,6 @@
 Golfstore::Application.routes.draw do
+  resources :profiles
+
   get "orderitems/index"
 
   get "orderitems/show"
@@ -40,6 +42,9 @@ end
 	match '/checkout' => 'cart#createOrder'
     
     match '/category/:id' => 'items#category'
+    
+    match '/myprofile' => 'profiles#myprofile' 
+
 
 	
 	match '/home' => 'site#home'

@@ -7,6 +7,7 @@ gem 'devise','2.1.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'acts_as_indexed'
 
 
 # Gems used only for assets and not required
