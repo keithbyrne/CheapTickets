@@ -1,0 +1,8 @@
+<%= form_tag("/search", :method => "get") do %>
+  <div>
+    <%= text_field_tag(:q, nil, :class => "text", :placeholder => "Search Events...") %>
+  </div>
+  <div class="softright">
+    <%= image_submit_tag("/assets/btn_search.gif") %>
+  </div>
+<% end %>

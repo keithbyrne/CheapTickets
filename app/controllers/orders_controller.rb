@@ -1,6 +1,16 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
+  before_filter :authenticate_user!
+  before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]
+  before_filter :ensure_admin, :except => [:index, :show]
+  
+  def ensure_admin
+    unless current_user && current_user.admin?
+      render :text => "Access Error Message", :status => :unauthorized
+    end
+  end
+  
   def index
     @orders = Order.all
 

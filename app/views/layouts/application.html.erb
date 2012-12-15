@@ -25,12 +25,11 @@
 <%end%>
       	</div>
       <!-- end nav -->
-      <a href=""><img src="/assets/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> 
-      <a href=""><img src="/assets/header_2.jpg" width="745" height="48" alt="" /></a> </div>
+     <img src="/assets/Cheap-Tickets.png" width="744" height="260" alt="CheapTickets" /></a> 
     <!-- end header -->
     <dl id="browse">
-      <dt><a href="/home/">Full Category Lists</dt>
-      <dd class="first"><a href="/category/Sports/">Sports</a></dd>
+      <dt>Check out the goods</dt>
+      <dd><a href="/category/Sports/">Sports</a></dd>
       <dd><a href="/category/Music/">Music</a></dd>
       <dd><a href="/category/Theatre/">Theatre</a></dd>
       <dd><a href="/category/Family/">Family</a></dd>
@@ -38,15 +37,7 @@
       <dd class="last"><a href="/category/SpecialEvents/">Special Events</a></dd>
       <dt>Search for Your Next Event</dt>
       <dd class="searchform">
-        <form action="http://all-free-download.com/free-website-templates/" method="get">
-          
-          <div>
-            <input name="q" type="text" value="Search Events" class="text" />
-          </div>
-          <div class="softright">
-            <input type="image" src="/assets/btn_search.gif" />
-          </div>
-        </form>
+	            <%= render '/items/search' %>
       </dd>
     </dl>
     <div id="body">
@@ -56,15 +47,15 @@
      <%= yield %>
      
      <% if user_signed_in? %>
-	<div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>)</div>
+	<div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>) Edit your Profile (<%= link_to 'HERE', "/profiles" %>)</div>
 
 	<% end %>
 	
     </div>
     <!-- end body -->
     <div class="clear"></div>
-    <div id="footer"> Footer <a href=""></a> &nbsp;
-      <div id="footnav"> Legal | Home</div>
+    <div id="footer">  &nbsp;
+      <div id="footnav"> Legal | <a href="/home/">Home</a></div>
       <!-- end footnav -->
     </div>
     <!-- end footer -->

@@ -1,14 +1,26 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
-  before_filter :authenticate_user!
   before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]
+  #before_filter :ensure_admin, :except => [:index, :show]
   def index
     @items = Item.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
+    end
+  end
+  
+  def search
+    @search_term = params[:q]
+    st = "%#{params[:q]}%"
+    @items = Item.where("Title like ? or Description like ? or Category like ?", st, st, st)
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json {render json: @items}
+      
     end
   end
 

@@ -1,6 +1,15 @@
 class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
+  before_filter :authenticate_user!
+  #before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]
+  
+  def ensure_admin
+    unless current_user && current_user.admin?
+      render :text => "Access Error Message", :status => :unauthorized
+    end
+  end
+  
   def index
     @profiles = Profile.all
 
@@ -20,7 +29,7 @@ class ProfilesController < ApplicationController
       format.json { render json: @profile }
     end
   end
-
+  
   # GET /profiles/new
   # GET /profiles/new.json
   def new
@@ -78,7 +87,7 @@ class ProfilesController < ApplicationController
     else
       @user = User.find(current_user.id)
 	@profile = Profile.find_by_user_id(@user.id)
-	redirect_to "/profiles/#{@profile.id}"
+	redirect_to "/home/"
     end
   end
 

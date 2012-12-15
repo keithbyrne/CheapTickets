@@ -45,7 +45,7 @@ end
     
     match '/myprofile' => 'profiles#myprofile' 
 
-
+    match '/search' => 'items#search'
 	
 	match '/home' => 'site#home'
 	

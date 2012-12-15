@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  before_filter :authenticate_user!
 def add
 	id = params[:id]
 	cart = session[:cart] ||= {}
@@ -29,6 +30,7 @@ def createOrder
 @cart.each do | id, quantity |
 item = Item.find_by_id(id)
 @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.description, :quantity => quantity, :price => item.price)
+#item.stockcount = item.stockcount - quantity
 @orderitem.save
 end
 end
